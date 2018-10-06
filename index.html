@@ -33,13 +33,46 @@
             width: 100%;
         }
 
-        #text {
+        .text {
             font-family: system-ui, Arial, sans-serif;
             font-size: 20px;
             color: #fff;
             font-weight: 300;
         }
     </style>
+
+    <script>
+        window.onload = function() {
+            var launch = 1541062800000; // November 1st 2018 - 9AM
+
+            function calculateTimer() {
+                var now = new Date().getTime();
+                var timeDiff = launch - now;
+                var timeDiffInSeconds = Math.floor(timeDiff / 1000);
+
+                if (timeDiffInSeconds < 0) {
+                    location.reload(true);
+                }
+                else {
+                    var days = Math.floor(timeDiffInSeconds / 86400);
+                    var hours = Math.floor((timeDiffInSeconds - (days * 86400)) / 3600);
+                    var minutes = Math.floor((timeDiffInSeconds - (days * 86400) - (hours * 3600)) / 60 );
+                    var seconds = Math.floor((timeDiffInSeconds - (days * 86400) - (hours * 3600) - (minutes * 60)));
+
+                    var countDownString = days === 0 ? "" : `${days} Days, `;
+                    countDownString += (days === 0 && hours === 0) ? "" : `${hours} Hours, `;
+                    countDownString += (days === 0 && hours === 0 && minutes === 0) ? "" : `${minutes} Minutes, `;
+                    countDownString += `${seconds} Seconds`;
+
+                    document.getElementById("timer").innerText = countDownString;
+                }
+            }
+
+            window.setInterval(calculateTimer, 1000);
+            calculateTimer();
+        }
+    </script>
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <title>Flavour 101</title>
@@ -48,7 +81,8 @@
 <body>
     <div id="wrapper">
         <img id="logo" src="logo.svg" />
-        <div id="text">Coming Soon.</div>
+        <div class="text">Coming Soon<br><br></div>
+        <div class="text" id="timer"></div>
     </div>
 </body>
 
