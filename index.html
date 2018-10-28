@@ -44,6 +44,7 @@
     <script>
         window.onload = function() {
             var launch = 1541062800000; // November 1st 2018 - 9AM
+            var timer = document.getElementById("timer");
 
             function calculateTimer() {
                 var now = new Date().getTime();
@@ -64,7 +65,7 @@
                     countDownString += (days === 0 && hours === 0 && minutes === 0) ? "" : `${minutes} Minutes, `;
                     countDownString += `${seconds} Seconds`;
 
-                    document.getElementById("timer").innerText = countDownString;
+                    timer.innerText = countDownString;
                 }
             }
 
