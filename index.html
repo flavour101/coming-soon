@@ -42,36 +42,36 @@
     </style>
 
     <script>
-        // window.onload = function() {
-        //     var launch = 1541062800000; // November 1st 2018 - 9AM
-        //     var timer = document.getElementById("timer");
+        window.onload = function() {
+            var launch = 1541149200000; // November 1st 2018 - 9AM
+            var timer = document.getElementById("timer");
 
-        //     function calculateTimer() {
-        //         var now = new Date().getTime();
-        //         var timeDiff = launch - now;
-        //         var timeDiffInSeconds = Math.floor(timeDiff / 1000);
+            function calculateTimer() {
+                var now = new Date().getTime();
+                var timeDiff = launch - now;
+                var timeDiffInSeconds = Math.floor(timeDiff / 1000);
 
-        //         if (timeDiffInSeconds < 0) {
-        //             location.reload(true);
-        //         }
-        //         else {
-        //             var days = Math.floor(timeDiffInSeconds / 86400);
-        //             var hours = Math.floor((timeDiffInSeconds - (days * 86400)) / 3600);
-        //             var minutes = Math.floor((timeDiffInSeconds - (days * 86400) - (hours * 3600)) / 60 );
-        //             var seconds = Math.floor((timeDiffInSeconds - (days * 86400) - (hours * 3600) - (minutes * 60)));
+                if (timeDiffInSeconds < 0) {
+                    location.reload(true);
+                }
+                else {
+                    var days = Math.floor(timeDiffInSeconds / 86400);
+                    var hours = Math.floor((timeDiffInSeconds - (days * 86400)) / 3600);
+                    var minutes = Math.floor((timeDiffInSeconds - (days * 86400) - (hours * 3600)) / 60 );
+                    var seconds = Math.floor((timeDiffInSeconds - (days * 86400) - (hours * 3600) - (minutes * 60)));
 
-        //             var countDownString = days === 0 ? "" : `${days} Days, `;
-        //             countDownString += (days === 0 && hours === 0) ? "" : `${hours} Hours, `;
-        //             countDownString += (days === 0 && hours === 0 && minutes === 0) ? "" : `${minutes} Minutes, `;
-        //             countDownString += `${seconds} Seconds`;
+                    var countDownString = days === 0 ? "" : `${days} Days, `;
+                    countDownString += (days === 0 && hours === 0) ? "" : `${hours} Hours, `;
+                    countDownString += (days === 0 && hours === 0 && minutes === 0) ? "" : `${minutes} Minutes, `;
+                    countDownString += `${seconds} Seconds`;
 
-        //             timer.innerText = countDownString;
-        //         }
-        //     }
+                    timer.innerText = countDownString;
+                }
+            }
 
-        //     window.setInterval(calculateTimer, 1000);
-        //     calculateTimer();
-        // }
+            window.setInterval(calculateTimer, 1000);
+            calculateTimer();
+        }
     </script>
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -83,7 +83,7 @@
     <div id="wrapper">
         <img id="logo" src="logo.svg" />
         <div class="text">Coming Soon<br><br></div>
-        <div class="text" id="timer">Launch delayed! Check <a href="https://twitter.com/Harmelodic" target="_blank" style="color: #4286f4">Twitter</a> for updates</div>
+        <div class="text" id="timer"></div>
     </div>
 </body>
 
